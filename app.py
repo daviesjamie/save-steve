@@ -1,4 +1,4 @@
-from flask import abort, Flask, render_template, request, url_for
+from flask import abort, Flask, redirect, render_template, request, url_for
 from markupsafe import escape
 import os
 import yaml
@@ -26,8 +26,16 @@ def create_app():
         if request.method == 'GET':
             return render_template('code.html', number=number)
         else:
+            guess = int(request.form['code'])
             solution = code["code"]
-            return 'Checking solution'
+
+            if guess == solution:
+                next_number = number + 1
+                next_prefix = config["codes"][next_number]["prefix"]
+                return redirect(url_for('show_code', code_number=next_number, prefix=next_prefix))
+            else:
+                error = "Incorrect code!"
+                return render_template('code.html', number=number, error=error)
 
     with app.test_request_context():
         for code_number in config["codes"]:
