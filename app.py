@@ -17,8 +17,8 @@ def create_app():
     with open(CONFIG_FILE, 'r') as stream:
         try:
             config = yaml.safe_load(stream)
-        except yaml.YAMLError as e:
-            print(e)
+        except yaml.YAMLError as exc:
+            print(exc)
 
     stages = add_prefixes(config["stages"])
 
@@ -43,8 +43,8 @@ def create_app():
 
             if guess == solution:
                 return redirect_to_stage_after(stage_number)
-            else:
-                incorrect_guess = True
+
+            incorrect_guess = True
 
         return render_template("stage.html", number=number, incorrect_guess=incorrect_guess)
 
@@ -77,7 +77,7 @@ def create_app():
 
 def add_prefixes(stages):
     prefixed_stages = copy.deepcopy(stages)
-    for i in range(len(prefixed_stages)):
+    for i, _ in enumerate(prefixed_stages):
         prefixed_stages[i]["prefix"] = generate_prefix()
     return prefixed_stages
 
