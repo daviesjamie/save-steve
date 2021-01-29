@@ -1,4 +1,4 @@
-from flask import abort, Flask, url_for
+from flask import abort, Flask, render_template, request, url_for
 from markupsafe import escape
 import os
 import yaml
@@ -15,7 +15,7 @@ def create_app():
         except yaml.YAMLError as e:
             print(e)
 
-    @app.route('/<prefix>/<int:code_number>')
+    @app.route('/<prefix>/<int:code_number>', methods=['GET', 'POST'])
     def show_code(prefix, code_number):
         number = int(escape(code_number))
         code = config["codes"].get(number)
@@ -23,8 +23,11 @@ def create_app():
         if not code or prefix != code["prefix"]:
             abort(404)
 
-        solution = code["code"]
-        return f'Code {number} is {solution}'
+        if request.method == 'GET':
+            return render_template('code.html', number=number)
+        else:
+            solution = code["code"]
+            return 'Checking solution'
 
     with app.test_request_context():
         for code_number in config["codes"]:
