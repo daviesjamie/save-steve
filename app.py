@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, url_for
 from markupsafe import escape
 import os
 import yaml
@@ -15,12 +15,15 @@ def create_app():
         except yaml.YAMLError as e:
             print(e)
 
-    print(config)
-
     @app.route('/code/<int:code_number>')
     def show_code(code_number):
         number = int(escape(code_number))
         code = config["codes"][number]["code"]
         return f'Code {number} is {code}'
+
+    with app.test_request_context():
+        for code in config["codes"]:
+            url = url_for('show_code', code_number=code)
+            print(f"Code {code}\t{url}")
 
     return app
