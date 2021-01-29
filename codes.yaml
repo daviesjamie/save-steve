@@ -1,38 +1,26 @@
 
-codes:
-  1:
-    code: 358
-    prefix: QN5pjI
-  2:
-    code: 732
-    prefix: ArQUrH
-  3:
-    code: 971
-    prefix: fhWnxU
-  4:
-    code: 521
-    prefix: L7Ept9
-  5:
-    code: 285
-    prefix: c0KY27
-  6:
-    code: 622
-    prefix: ubz6Dt
-  7:
-    code: 710
-    prefix: R9pSKm
-  8:
-    code: 471
-    prefix: d2COST
-  9:
-    code: 123
-    prefix: N8hBzx
-  10:
-    code: 829
-    prefix: IEzpTH
-  11:
-    code: 146
-    prefix: TMkgWM
-  12:
-    code: 538
-    prefix: ARe5lN
+stages:
+  # Code 1
+  - code: 358
+  # Code 2
+  - code: 732
+  # Code 3
+  - code: 971
+  # Code 4
+  - code: 521
+  # Code 5
+  - code: 285
+  # Code 6
+  - code: 622
+  # Code 7
+  - code: 710
+  # Code 8
+  - code: 471
+  # Code 9
+  - code: 123
+  # Code 10
+  - code: 829
+  # Code 11
+  - code: 146
+  # Code 12
+  - code: 538

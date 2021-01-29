@@ -1,7 +1,12 @@
+import copy
+import os
+import random
+import string
+import yaml
+
 from flask import abort, Flask, redirect, render_template, request, url_for
 from markupsafe import escape
-import os
-import yaml
+
 
 CONFIG_FILE = os.environ.get("CONFIG") or "codes.yaml"
 
@@ -15,32 +20,67 @@ def create_app():
         except yaml.YAMLError as e:
             print(e)
 
-    @app.route('/<prefix>/<int:code_number>', methods=['GET', 'POST'])
-    def show_code(prefix, code_number):
-        number = int(escape(code_number))
-        code = config["codes"].get(number)
+    stages = add_prefixes(config["stages"])
 
-        if not code or prefix != code["prefix"]:
+    @app.route("/")
+    def start():
+        first_stage = url_for("stage", prefix=stages[0]["prefix"], number=1)
+        return render_template("start.html", first_stage=first_stage)
+
+    @app.route("/<prefix>/<int:number>", methods=["GET", "POST"])
+    def stage(prefix, number):
+        stage_number = int(escape(number))
+        stage = stages[number - 1]
+
+        if not stage or prefix != stage["prefix"]:
             abort(404)
 
-        if request.method == 'GET':
-            return render_template('code.html', number=number)
-        else:
-            guess = int(request.form['code'])
-            solution = code["code"]
+        incorrect_guess = False
+
+        if request.method == "POST":
+            guess = int(escape(request.form["code"]))
+            solution = stage["code"]
 
             if guess == solution:
-                next_number = number + 1
-                next_prefix = config["codes"][next_number]["prefix"]
-                return redirect(url_for('show_code', code_number=next_number, prefix=next_prefix))
+                return redirect_to_stage_after(stage_number)
             else:
-                error = "Incorrect code!"
-                return render_template('code.html', number=number, error=error)
+                incorrect_guess = True
 
+        return render_template("stage.html", number=number, incorrect_guess=incorrect_guess)
+
+    @app.route(f"/{generate_prefix()}/end")
+    def end():
+        return render_template("end.html")
+
+    def redirect_to_stage_after(current_stage_number):
+        next_number = current_stage_number + 1
+        if next_number > len(stages):
+            return redirect(url_for("end"))
+
+        next_stage = stages[next_number - 1]
+        return redirect(url_for("stage", prefix=next_stage["prefix"], number=next_number))
+
+    # Print out all stage URLs when creating app
     with app.test_request_context():
-        for code_number in config["codes"]:
-            prefix = config["codes"][code_number]["prefix"]
-            url = url_for('show_code', code_number=code_number, prefix=prefix)
-            print(f"Code {code_number}\t{url}")
+        start_url = url_for("start")
+        print(f"Start\t{start_url}")
+
+        for i, stage in enumerate(stages, start=1):
+            url = url_for("stage", prefix=stage["prefix"], number=i)
+            print(f"Stage {i}\t{url}")
+
+        end_url = url_for("end")
+        print(f"End\t{end_url}")
 
     return app
+
+
+def add_prefixes(stages):
+    prefixed_stages = copy.deepcopy(stages)
+    for i in range(len(prefixed_stages)):
+        prefixed_stages[i]["prefix"] = generate_prefix()
+    return prefixed_stages
+
+
+def generate_prefix(size=6, chars=string.ascii_uppercase + string.ascii_lowercase):
+    return ''.join(random.choice(chars) for _ in range(size))
