@@ -1,15 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Code {{ number }}</title>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+  />
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+  <title>Code {{ number }}</title>
 </head>
+
 <body>
-    <h1>Code {{ number }}</h1>
-    {% if incorrect_guess %}
-        <p><strong>Nope!</strong></p>
-    {% endif %}
-    <form method="post">
-        <input type="text" id="code" name="code">
-        <input type="submit" value="Submit">
-    </form>
+  <div class="container">
+    <section class="title">
+      <h1>Code {{ number }}</h1>
+    </section>
+
+    <section class="lock">
+      <form method="post">
+        <div class="combination">
+          {% for i in range(3) %}
+            <div class="wheel">
+              <div class="increment" index="{{ i }}">
+                <svg version="1.1" id="Chevron_small_up" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+        y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+                  <path fill="#fff" d="M6.582,12.141c-0.271,0.268-0.709,0.268-0.978,0c-0.269-0.268-0.272-0.701,0-0.969l3.908-3.83
+        c0.27-0.268,0.707-0.268,0.979,0l3.908,3.83c0.27,0.267,0.27,0.701,0,0.969c-0.271,0.268-0.709,0.268-0.979,0L10,9L6.582,12.141z"/>
+                </svg>
+              </div>
+
+              <input class="digit" index="{{ i }}" name="digit{{ i }}" type="number" value="0" min="0" max="9">
+
+              <div class="decrement" index="{{ i }}">
+                <svg version="1.1" id="Chevron_small_down" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+        y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+                  <path fill="#fff" d="M13.418,7.859c0.271-0.268,0.709-0.268,0.978,0c0.27,0.268,0.272,0.701,0,0.969l-3.908,3.83
+        c-0.27,0.268-0.707,0.268-0.979,0l-3.908-3.83c-0.27-0.267-0.27-0.701,0-0.969c0.271-0.268,0.709-0.268,0.978,0L10,11L13.418,7.859z
+        "/>
+                </svg>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <input class="submit" type="submit" value="Submit">
+      </form>
+    </section>
+  </div>
+
+  <script src="{{ url_for('static', filename='combination.js') }}"></script>
 </body>
 </html>

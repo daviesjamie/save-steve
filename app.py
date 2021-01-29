@@ -38,10 +38,13 @@ def create_app():
         incorrect_guess = False
 
         if request.method == "POST":
-            guess = int(escape(request.form["code"]))
             solution = stage["code"]
 
-            if guess == solution:
+            guess = ""
+            for i in range(3):
+                guess += escape(request.form[f"digit{i}"])
+
+            if int(guess) == solution:
                 return redirect_to_stage_after(stage_number)
 
             incorrect_guess = True

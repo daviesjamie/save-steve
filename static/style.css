@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap');
+
+body {
+    background: #16191b;
+    color: #e2e6e8;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
+    height: 100%;
+    margin: 0;
+}
+
+h1 {
+    font-weight: 300;
+    margin-bottom: 50px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    position: relative;
+    text-decoration: none;
+}
+
+a:after {
+    background: #e2e6e8;
+    bottom: -2px;
+    content: '';
+    height: 1px;
+    left: 0;
+    opacity: 0.2;
+    position: absolute;
+    right: 0;
+}
+
+a:hover:after {
+    opacity: 1;
+}
+
+.container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.combination {
+    border: 2px solid #070707;
+    border-radius: 4px;
+    display: flex;
+    padding: 0 4px;
+}
+
+.combination .wheel {
+    font-size: 32px;
+    padding: 0 4px;
+    text-align: center;
+}
+
+.combination .wheel .increment,
+.combination .wheel .decrement {
+    background: #484b4c;
+    border: 2px solid #070707;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 32px;
+    position: relative;
+    transition: border-color 0.1s ease;
+    width: 32px;
+}
+
+.combination .wheel .increment:active,
+.combination .wheel .decrement:active {
+    border-color: #e2e6e8;
+}
+
+.combination .wheel .increment.click,
+.combination .wheel .decrement.click {
+    border-color: #e2e6e8;
+    transition: border-color 0s ease;
+}
+
+.combination .wheel .increment img,
+.combination .wheel .decrement img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+}
+
+.combination .wheel .increment {
+    margin-top: -14px;
+}
+
+.combination .wheel .decrement {
+    margin-bottom: -14px;
+}
+
+.digit {
+    -moz-appearance: textfield;
+    background: #484b4c;
+    border: 2px solid #070707;
+    border-radius: 32px;
+    caret-color: #484b4c;
+    color: #e2e6e8;
+    cursor: pointer;
+    font-size: 32px;
+    margin: 8px 0;
+    outline: none;
+    padding: 8px 0;
+    text-align: center;
+    user-select: none;
+    transition: border-color 0.1s ease;
+    width: 32px;
+}
+
+.digit:focus {
+    border-color: #e2e6e8;
+}
+
+.digit::-webkit-inner-spin-button,
+.digit::-webkit-outer-spin-button {
+    -webkit-apperance: none;
+    margin: 0;
+}
+
+.digit::selection {
+    background: transparent;
+}
+
+input.submit {
+    background: #484b4c;
+    border: 2px solid #070707;
+    border-radius: 16px;
+    color: #e2e2e2;
+    cursor: pointer;
+    font-size: 24px;
+    margin: 40px 0;
+    margin-left: 12px;
+    padding: 8px;
+    text-align: center;
+    width: 120px;
+}
