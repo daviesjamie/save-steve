@@ -1,26 +1,43 @@
-
 stages:
   # Code 1
   - code: 358
+    image: "gunpoint-steve.jpg"
+
   # Code 2
   - code: 732
+
   # Code 3
   - code: 971
+    image: "prison-steve.jpg"
+
   # Code 4
   - code: 521
+
   # Code 5
   - code: 285
+    image: "dangling-steve.jpg"
+
   # Code 6
   - code: 622
+
   # Code 7
   - code: 710
+    image: "hanging-steve.jpg"
+
   # Code 8
   - code: 471
+
   # Code 9
   - code: 123
+    image: "beheading-steve.jpg"
+
   # Code 10
   - code: 829
+
   # Code 11
   - code: 146
+    image: "drowning-steve.jpg"
+
   # Code 12
   - code: 538
+    image: "stabbed-steve.jpg"
