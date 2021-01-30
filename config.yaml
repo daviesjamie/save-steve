@@ -26,6 +26,7 @@ stages:
   # Code 4
   - code: 521
     prefix: mIKjom
+    message: Time’s a-ticking people!
 
   # Code 5
   - code: 285
@@ -38,29 +39,42 @@ stages:
   # Code 6
   - code: 622
     prefix: sEtsFz
+    message: >
+      You’ve done better than I expected so far, but my puzzles will only get
+      harder!
 
   # Code 7
   - code: 710
     prefix: cmXqyM
     image: hanging-steve.jpg
+    message: Steve and I are having a nice time 'hanging out'
 
   # Code 8
   - code: 471
     prefix: SKWNaG
+    message: >
+      Knock knock. Who’s there? Not Steve because you’ll never see him
+      again!
 
   # Code 9
   - code: 227
     prefix: tDVUpr
     image: beheading-steve.jpg
+    message: >
+      I spy, with my little eye, a sleepy kitty in need of a beheading!
 
   # Code 10
   - code: 829
     prefix: qxcalZ
+    message: >
+      You did well to get this far, but there is no way you’ll get through my
+      last few puzzles...
 
   # Code 11
   - code: 146
     prefix: Totlac
     image: drowning-steve.jpg
+    message: Steve will be sleeping with the fishes soon...
 
   # Code 12
   - code: 538
