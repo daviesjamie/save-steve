@@ -21,6 +21,7 @@ def create_app():
             print(exc)
 
     stages = add_prefixes(config["stages"])
+    taunts = config["taunts"]
 
     @app.route("/")
     def start():
@@ -31,11 +32,10 @@ def create_app():
     def stage(prefix, number):
         stage_number = int(escape(number))
         stage = stages[number - 1]
+        stage["number"] = stage_number
 
         if not stage or prefix != stage["prefix"]:
             abort(404)
-
-        incorrect_guess = False
 
         if request.method == "POST":
             solution = stage["code"]
@@ -47,10 +47,9 @@ def create_app():
             if int(guess) == solution:
                 return redirect_to_stage_after(stage_number)
 
-            incorrect_guess = True
+            stage["incorrect_guess"] = True
 
-        return render_template("stage.html", number=number, incorrect_guess=incorrect_guess,
-                               image=stage.get("image"), message=stage.get("message"))
+        return render_template("stage.html", stage=stage, taunts=taunts)
 
     @app.route(f"/{generate_prefix()}/end")
     def end():

@@ -9,40 +9,30 @@
 
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 
-  <title>Code {{ number }}</title>
+  <title>Code {{ stage.number }}</title>
 </head>
 
 <body>
   <div class="container">
-    {% if image %}
+    {% if stage.image %}
       <section class="steve-pic">
-        <img src="{{ url_for('static', filename=image) }}" />
+        <img src="{{ url_for('static', filename=stage.image) }}" />
       </section>
     {% endif %}
 
-    {% if message %}
+    {% if stage.message %}
       <section class="stella-message">
-        <p>{{ message }}</p>
+        <p>{{ stage.message }}</p>
       </section>
     {% endif %}
 
     <section class="title">
       <h2>Code</h2>
-      <h1 class="code-number">{{ number }}</h1>
+      <h1 class="code-number">{{ stage.number }}</h1>
     </section>
 
-    {% if incorrect_guess %}
+    {% if stage.incorrect_guess %}
       <section class="incorrect">
-        {% set taunts = [
-          "Nope! Guess again.",
-          "Nope! Guess again.",
-          "Hahaha, nice try!",
-          "Hahaha, nice try!",
-          "Uhmmm... Wrong!",
-          "Uhmmm... Wrong!",
-          "You'll never save Steve at this rate!",
-          "Pathetic."
-        ] %}
         <p>{{ taunts | random }}</p>
       </section>
     {% endif %}

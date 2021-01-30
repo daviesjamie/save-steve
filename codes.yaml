@@ -57,3 +57,12 @@ stages:
     message: >
       This is what's going to happen to poor little Steve if you don't hurry
       up!
+
+taunts:
+  - Nope! Guess again.
+  - Hahaha, nice try!
+  - Uhmmm... Wrong!
+  - I don't think so...
+  - You'll never save Steve at this rate!
+  - Pathetic.
+  - Did you really think that was the answer?
