@@ -58,6 +58,10 @@ def create_app():
     def end():
         return render_template("end.html")
 
+    @app.errorhandler(404)
+    def page_not_found(error):
+        return render_template('404.html'), 404
+
     def redirect_to_stage_after(current_stage_number):
         next_number = current_stage_number + 1
         if next_number > len(stages):
