@@ -1,24 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
-  />
+{% extends "base.html" %}
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+{% block content %}
+  <section class="steve-pic">
+    <img src="{{ url_for('static', filename='hiding-steve.jpg') }}" class="fade-to-black" />
+  </section>
 
-  <title>Save Steve!</title>
-</head>
-<body>
-  <div class="container">
-    <section class="steve-pic">
-      <img src="{{ url_for('static', filename='hiding-steve.jpg') }}" class="fade-to-black" />
-    </section>
-
-    <h1>Steve needs your help...</h1>
-    <p><a href="{{ first_stage }}">Click here to get started!</a></p>
-  </div>
-</body>
-</html>
+  <h1>Steve needs your help...</h1>
+  <p><a href="{{ first_stage }}">Click here to get started!</a></p>
+{% endblock %}

@@ -1,20 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
-  />
+{% extends "base.html" %}
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+{% block title %}Not Found | {{ super() }}{% endblock %}
 
-  <title>Not Found | Save Steve!</title>
-</head>
-<body>
-  <div class="container">
-    <h1>404</h1>
-    <p>Were you trying to be clever and skip ahead? Nice try, but that page <b>cannot be found</b>.</p>
-  </div>
-</body>
-</html>
+{% block content %}
+  <h1>404</h1>
+  <p>Were you trying to be clever and skip ahead? Nice try, but that page <b>cannot be found</b>.</p>
+{% endblock %}
