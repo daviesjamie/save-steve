@@ -9,11 +9,6 @@ body {
     margin: 0;
 }
 
-h1 {
-    font-weight: 300;
-    margin-bottom: 50px;
-}
-
 p {
     line-height: 1.6;
 }
@@ -45,6 +40,23 @@ a:hover:after {
     flex-direction: column;
     justify-content: center;
     min-height: 100vh;
+}
+
+.title {
+    font-weight: 300;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.title h2 {
+    font-weight: 300;
+    margin: 0;
+}
+
+.code-number {
+    font-size: 52px;
+    font-weight: 400;
+    margin: 0;
 }
 
 .incorrect {
