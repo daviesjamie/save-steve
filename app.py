@@ -8,7 +8,7 @@ from flask import abort, Flask, redirect, render_template, request, url_for
 from markupsafe import escape
 
 
-CONFIG_FILE = os.environ.get("CONFIG") or "codes.yaml"
+CONFIG_FILE = os.environ.get("CONFIG") or "config.yaml"
 
 
 def create_app():
