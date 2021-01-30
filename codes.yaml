@@ -1,6 +1,7 @@
 stages:
   # Code 1
   - code: 358
+    prefix: HvOvHf
     image: "gunpoint-steve.jpg"
     message: >
       I've had enough of this fat cat. If you can't best me in a challenge of
@@ -8,6 +9,7 @@ stages:
 
   # Code 2
   - code: 732
+    prefix: RnKTbl
     message: >
       You didn't think that would be it, did you? Hahaha, I've still got plenty
       of time to imagine ways of torturing Steve whilst you struggle with my
@@ -15,6 +17,7 @@ stages:
 
   # Code 3
   - code: 971
+    prefix: yWOaCn
     image: "prison-steve.jpg"
     message: >
       What's that? It's nearly Steve's tea time? Well there's not going to be
@@ -22,9 +25,11 @@ stages:
 
   # Code 4
   - code: 521
+    prefix: mIKjom
 
   # Code 5
   - code: 285
+    prefix: VhfJjc
     image: "dangling-steve.jpg"
     message: >
       Just imagine the fun that Steve and I will have together once you've
@@ -32,31 +37,41 @@ stages:
 
   # Code 6
   - code: 622
+    prefix: sEtsFz
 
   # Code 7
   - code: 710
+    prefix: cmXqyM
     image: "hanging-steve.jpg"
 
   # Code 8
   - code: 471
+    prefix: SKWNaG
 
   # Code 9
   - code: 123
+    prefix: tDVUpr
     image: "beheading-steve.jpg"
 
   # Code 10
   - code: 829
+    prefix: qxcalZ
 
   # Code 11
   - code: 146
+    prefix: Totlac
     image: "drowning-steve.jpg"
 
   # Code 12
   - code: 538
+    prefix: wXkyCj
     image: "stabbed-steve.jpg"
     message: >
       This is what's going to happen to poor little Steve if you don't hurry
       up!
+
+end:
+  prefix: FBjtUJ
 
 taunts:
   - Nope! Guess again.

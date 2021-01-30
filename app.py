@@ -53,7 +53,8 @@ def create_app():
 
         return render_template("stage.html", stage=stage, taunt=taunt, taunts=taunts)
 
-    @app.route(f"/{generate_prefix()}/end")
+    end_prefix = config["end"]["prefix"] or generate_prefix()
+    @app.route(f"/{end_prefix}/end")
     def end():
         return render_template("end.html")
 
@@ -83,7 +84,8 @@ def create_app():
 def add_prefixes(stages):
     prefixed_stages = copy.deepcopy(stages)
     for i, _ in enumerate(prefixed_stages):
-        prefixed_stages[i]["prefix"] = generate_prefix()
+        if not prefixed_stages[i]["prefix"]:
+            prefixed_stages[i]["prefix"] = generate_prefix()
     return prefixed_stages
 
 
