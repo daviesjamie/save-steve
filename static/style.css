@@ -53,6 +53,18 @@ section {
     width: 100%;
 }
 
+@keyframes fade-to-black {
+    from { filter: grayscale(0%) brightness(100%) }
+    to { filter: grayscale(100%) brightness(30%); }
+}
+
+.steve-pic img.fade-to-black {
+    animation-name: fade-to-black;
+    animation-duration: 5s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
 .title {
     font-weight: 300;
     text-align: center;
