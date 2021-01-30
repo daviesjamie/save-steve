@@ -50,7 +50,7 @@ def create_app():
             incorrect_guess = True
 
         return render_template("stage.html", number=number, incorrect_guess=incorrect_guess,
-                               image=stage.get("image"))
+                               image=stage.get("image"), message=stage.get("message"))
 
     @app.route(f"/{generate_prefix()}/end")
     def end():

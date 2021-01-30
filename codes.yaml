@@ -2,13 +2,23 @@ stages:
   # Code 1
   - code: 358
     image: "gunpoint-steve.jpg"
+    message: >
+      I've had enough of this fat cat. If you can't best me in a challenge of
+      wit, then this will be the last you see of him!
 
   # Code 2
   - code: 732
+    message: >
+      You didn't think that would be it, did you? Hahaha, I've still got plenty
+      of time to imagine ways of torturing Steve whilst you struggle with my
+      fiendish puzzles!
 
   # Code 3
   - code: 971
     image: "prison-steve.jpg"
+    message: >
+      What's that? It's nearly Steve's tea time? Well there's not going to be
+      any biscuits for him tonight!
 
   # Code 4
   - code: 521
@@ -16,6 +26,9 @@ stages:
   # Code 5
   - code: 285
     image: "dangling-steve.jpg"
+    message: >
+      Just imagine the fun that Steve and I will have together once you've
+      failed to beat my challenges...
 
   # Code 6
   - code: 622
@@ -41,3 +54,6 @@ stages:
   # Code 12
   - code: 538
     image: "stabbed-steve.jpg"
+    message: >
+      This is what's going to happen to poor little Steve if you don't hurry
+      up!

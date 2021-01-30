@@ -20,6 +20,12 @@
       </section>
     {% endif %}
 
+    {% if message %}
+      <section class="stella-message">
+        <p>{{ message }}</p>
+      </section>
+    {% endif %}
+
     <section class="title">
       <h2>Code</h2>
       <h1 class="code-number">{{ number }}</h1>

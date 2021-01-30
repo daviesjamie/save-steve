@@ -34,17 +34,17 @@ a:hover:after {
     opacity: 1;
 }
 
+section {
+    margin: 25px 0;
+    max-width: 500px;
+}
+
 .container {
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-height: 100vh;
-}
-
-.steve-pic {
-    margin-bottom: 50px;
-    max-width: 500px;
 }
 
 .steve-pic img {
@@ -55,7 +55,6 @@ a:hover:after {
 
 .title {
     font-weight: 300;
-    margin-bottom: 50px;
     text-align: center;
 }
 
@@ -74,7 +73,6 @@ a:hover:after {
     background-color: #950a0b;
     border: 2px solid #690404;
     border-radius: 4px;
-    margin: 24px 0 48px;
     padding: 0 12px;
     text-align: center;
 }
@@ -171,8 +169,7 @@ input.submit {
     color: #e2e2e2;
     cursor: pointer;
     font-size: 24px;
-    margin: 40px 0;
-    margin-left: 12px;
+    margin: 40px 0 40px 12px;
     padding: 8px;
     text-align: center;
     width: 120px;
