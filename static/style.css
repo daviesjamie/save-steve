@@ -47,6 +47,15 @@ a:hover:after {
     min-height: 100vh;
 }
 
+.incorrect {
+    background-color: #950a0b;
+    border: 2px solid #690404;
+    border-radius: 4px;
+    margin: 24px 0 48px;
+    padding: 0 12px;
+    text-align: center;
+}
+
 .combination {
     border: 2px solid #070707;
     border-radius: 4px;
@@ -135,7 +144,7 @@ a:hover:after {
 input.submit {
     background: #484b4c;
     border: 2px solid #070707;
-    border-radius: 16px;
+    border-radius: 4px;
     color: #e2e2e2;
     cursor: pointer;
     font-size: 24px;

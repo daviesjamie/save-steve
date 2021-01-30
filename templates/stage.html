@@ -18,6 +18,22 @@
       <h1>Code {{ number }}</h1>
     </section>
 
+    {% if incorrect_guess %}
+      <section class="incorrect">
+        {% set taunts = [
+          "Nope! Guess again.",
+          "Nope! Guess again.",
+          "Hahaha, nice try!",
+          "Hahaha, nice try!",
+          "Uhmmm... Wrong!",
+          "Uhmmm... Wrong!",
+          "You'll never save Steve at this rate!",
+          "Pathetic."
+        ] %}
+        <p>{{ taunts | random }}</p>
+      </section>
+    {% endif %}
+
     <section class="lock">
       <form method="post">
         <div class="combination">
