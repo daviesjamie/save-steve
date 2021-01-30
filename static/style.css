@@ -166,7 +166,7 @@ section {
 
 .digit::-webkit-inner-spin-button,
 .digit::-webkit-outer-spin-button {
-    -webkit-apperance: none;
+    -webkit-appearance: none;
     margin: 0;
 }
 
